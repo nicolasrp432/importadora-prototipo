@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* ---- Color — paleta única, sin modo claro ---- */
+  --color-background: #0b0c0e;
+  --color-surface: #14161a;
+  --color-border: #23262b;
+  --color-foreground: #f2f0ed;
+  --color-muted: #8a8f96;
+  --color-accent: #c9a24a;
+  --color-accent-hover: #d9b563;
+  --color-accent-active: #a9832e;
+  --color-accent-foreground: #0b0c0e;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* ---- Fuentes ---- */
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+
+  /* ---- Espaciado — escala base de 8px ---- */
+  --spacing: 0.5rem;
+
+  /* ---- Radios — máx. 4px, prohibido pill ---- */
+  --radius-*: initial;
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* ---- Easings custom para movimiento ---- */
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ---- Escala tipográfica fluida (clamp), de caption a display ---- */
+  --text-caption: clamp(0.75rem, 0.728rem + 0.09vw, 0.8125rem);
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.02em;
+
+  --text-body-sm: clamp(0.875rem, 0.853rem + 0.09vw, 0.9375rem);
+  --text-body-sm--line-height: 1.6;
+
+  --text-body: clamp(0.9375rem, 0.894rem + 0.19vw, 1.0625rem);
+  --text-body--line-height: 1.6;
+
+  --text-body-lg: clamp(1.0625rem, 1.019rem + 0.19vw, 1.1875rem);
+  --text-body-lg--line-height: 1.55;
+
+  --text-heading-sm: clamp(1.25rem, 1.162rem + 0.38vw, 1.5rem);
+  --text-heading-sm--line-height: 1.3;
+
+  --text-heading: clamp(1.75rem, 1.574rem + 0.75vw, 2.25rem);
+  --text-heading--line-height: 1.15;
+  --text-heading--letter-spacing: -0.01em;
+
+  --text-heading-lg: clamp(2.25rem, 1.898rem + 1.5vw, 3.25rem);
+  --text-heading-lg--line-height: 1.08;
+  --text-heading-lg--letter-spacing: -0.015em;
+
+  --text-display: clamp(3.5rem, 2.62rem + 3.76vw, 6rem);
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.02em;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
 }
