@@ -12,7 +12,8 @@ gsap.registerPlugin(ScrollTrigger);
 const FRAME_COUNT = 164;
 const TRACK_HEIGHT_VH = 650;
 
-const frameUrl = (i: number) => `/hero/frame-${String(i + 1).padStart(4, "0")}.webp`;
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const frameUrl = (i: number) => `${basePath}/hero/frame-${String(i + 1).padStart(4, "0")}.webp`;
 
 interface Chapter {
   start: number;
