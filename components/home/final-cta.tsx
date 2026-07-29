@@ -12,7 +12,7 @@ export function FinalCta() {
   const ref = useSectionReveal<HTMLDivElement>("scale-up");
 
   return (
-    <section className="relative overflow-hidden border-t border-border py-24">
+    <section className="relative overflow-hidden border-t border-border py-14 sm:py-20 lg:py-24">
       <LiquidAccent className="pointer-events-auto absolute inset-y-0 right-0 hidden w-1/2 opacity-40 lg:block" />
       <Container>
         <div ref={ref} className="max-w-xl">
@@ -26,7 +26,11 @@ export function FinalCta() {
             menos de 48h.
           </p>
           <div className="mt-8">
-            <Button variant="primary" onClick={() => router.push("/solicitud")}>
+            <Button
+              variant="primary"
+              className="w-full sm:w-auto"
+              onClick={() => router.push("/solicitud")}
+            >
               Solicitar búsqueda
             </Button>
           </div>

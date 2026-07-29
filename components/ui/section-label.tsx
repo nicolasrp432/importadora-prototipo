@@ -7,12 +7,13 @@ export function SectionLabel({ className, children, ...props }: SectionLabelProp
   return (
     <div
       className={cn(
-        "flex items-center gap-3 text-caption font-sans uppercase tracking-[0.14em] text-muted",
+        "flex items-start gap-3 text-caption font-sans uppercase tracking-[0.14em] text-muted",
         className
       )}
       {...props}
     >
-      <span className="h-px w-6 bg-border" aria-hidden="true" />
+      {/* La regla se ancla a la primera línea, no al centro del bloque */}
+      <span className="mt-[0.7em] h-px w-6 shrink-0 bg-border" aria-hidden="true" />
       {children}
     </div>
   );

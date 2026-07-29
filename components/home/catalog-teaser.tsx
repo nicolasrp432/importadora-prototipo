@@ -17,7 +17,7 @@ export function CatalogTeaser() {
   const gridRef = useStaggerReveal<HTMLDivElement>();
 
   return (
-    <section className="border-t border-border py-24">
+    <section className="border-t border-border py-14 sm:py-20 lg:py-24">
       <Container>
         <div ref={headerRef} className="flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -26,12 +26,16 @@ export function CatalogTeaser() {
               Disponibles ahora
             </h2>
           </div>
-          <Button variant="secondary" onClick={() => router.push("/catalogo")}>
+          <Button
+            variant="secondary"
+            className="w-full sm:w-auto"
+            onClick={() => router.push("/catalogo")}
+          >
             Ver los {publicVehicles.length} vehículos →
           </Button>
         </div>
 
-        <div ref={gridRef} className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={gridRef} className="mt-10 grid gap-10 sm:mt-16 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
           {featured.map((vehicle) => (
             <div key={vehicle.slug} data-stagger-item>
               <VehicleCard vehicle={vehicle} />

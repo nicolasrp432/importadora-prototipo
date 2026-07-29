@@ -38,7 +38,7 @@ export function StatsSection() {
   ];
 
   return (
-    <section className="border-t border-border py-24">
+    <section className="border-t border-border py-14 sm:py-20 lg:py-24">
       <Container>
         <div ref={ref}>
           <div data-stagger-item>
@@ -50,7 +50,7 @@ export function StatsSection() {
           >
             El coste real, por delante — nunca al final
           </h2>
-          <div className="mt-16 grid gap-12 sm:grid-cols-3">
+          <div className="mt-10 grid gap-10 sm:mt-16 sm:grid-cols-3 sm:gap-12">
             {stats.map((stat) => (
               <Stat key={stat.label} {...stat} />
             ))}

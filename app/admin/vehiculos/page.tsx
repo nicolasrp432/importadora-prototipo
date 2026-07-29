@@ -29,12 +29,12 @@ export default function AdminVehiculosPage() {
   }
 
   return (
-    <main className="pb-32 pt-24">
+    <main className="pb-20 pt-14 sm:pb-32 sm:pt-24">
       <AdminNav />
       <Container>
         <div
           ref={headerRef}
-          className="mt-10 flex flex-wrap items-end justify-between gap-6"
+          className="mt-8 sm:mt-10 flex flex-wrap items-end justify-between gap-6"
         >
           <div>
             <div data-stagger-item>
@@ -57,7 +57,7 @@ export default function AdminVehiculosPage() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border">
+        <div className="mt-8 sm:mt-12 border-t border-border">
           {!hydrated ? null : vehicles.length === 0 ? (
             <p className="py-16 text-center text-body-sm text-muted">
               No hay vehículos todavía.

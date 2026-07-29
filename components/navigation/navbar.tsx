@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
+import { assetPath } from "@/lib/asset-path";
 
 const NAV_ITEMS = [
   { href: "/", label: "Inicio" },
@@ -28,8 +29,13 @@ export function Navbar() {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") setOpen(false);
     }
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, [open]);
 
   function isActive(href: string) {
@@ -39,20 +45,20 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background">
       <Container>
-        <div className="flex h-9 items-center justify-between">
+        <div className="flex h-14 items-center justify-between gap-3 sm:h-9">
           <Link
             href="/"
-            className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="flex min-w-0 items-center gap-2 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:gap-3"
           >
             <Image
-              src="/brand/logo-mark.png"
+              src={assetPath("/brand/logo-mark.png") as string}
               alt=""
-              width={32}
-              height={32}
-              className="h-8 w-8"
+              width={64}
+              height={64}
+              className="h-[30px] w-[30px] shrink-0 sm:h-[40px] sm:w-[40px]"
               priority
             />
-            <span className="font-display text-body-lg text-foreground">
+            <span className="truncate font-display text-body text-foreground sm:text-body-lg">
               Eleven Motorworks
             </span>
           </Link>
@@ -88,7 +94,7 @@ export function Navbar() {
             aria-controls="mobile-menu"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-sm border border-border text-foreground sm:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="-mr-1 flex h-[44px] w-[44px] shrink-0 cursor-pointer items-center justify-center rounded-sm border border-border text-foreground sm:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
               {open ? (
@@ -115,29 +121,46 @@ export function Navbar() {
         <nav
           id="mobile-menu"
           aria-label="Principal móvil"
-          className="border-t border-border bg-background px-4 py-8 sm:hidden"
+          className="h-[calc(100svh-3.5rem)] overflow-y-auto border-t border-border bg-background px-4 pb-10 pt-6 sm:hidden"
         >
-          <div className="flex flex-col gap-6">
-            {NAV_ITEMS.map((item) => (
+          <div className="flex flex-col">
+            {NAV_ITEMS.map((item, i) => (
               <Link
                 key={item.href}
                 href={item.href}
+                style={{ animationDelay: `${60 + i * 70}ms` }}
                 className={cn(
-                  "text-heading-sm font-display",
+                  "menu-enter flex items-center justify-between border-b border-border py-4 font-display text-heading-sm",
                   isActive(item.href) ? "text-foreground" : "text-muted"
                 )}
                 aria-current={isActive(item.href) ? "page" : undefined}
               >
                 {item.label}
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "text-body-sm",
+                    isActive(item.href) ? "text-accent" : "text-border"
+                  )}
+                >
+                  →
+                </span>
               </Link>
             ))}
             <Button
               variant="primary"
-              className="mt-2 w-full"
+              style={{ animationDelay: `${60 + NAV_ITEMS.length * 70}ms` }}
+              className="menu-enter mt-8 w-full"
               onClick={() => router.push("/solicitud")}
             >
               Solicitar
             </Button>
+            <p
+              style={{ animationDelay: `${130 + NAV_ITEMS.length * 70}ms` }}
+              className="menu-enter mt-8 text-caption uppercase tracking-[0.14em] text-accent"
+            >
+              From Dubai. Driven worldwide.
+            </p>
           </div>
         </nav>
       ) : null}

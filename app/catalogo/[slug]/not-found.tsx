@@ -4,7 +4,7 @@ import { SectionLabel } from "@/components/ui/section-label";
 
 export default function VehicleNotFound() {
   return (
-    <main className="flex min-h-screen items-center py-24">
+    <main className="flex min-h-[100svh] items-center py-14 sm:py-20 lg:py-24">
       <Container>
         <div className="max-w-lg">
           <SectionLabel>404</SectionLabel>

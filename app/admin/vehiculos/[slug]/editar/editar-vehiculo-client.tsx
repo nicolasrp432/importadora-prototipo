@@ -24,10 +24,10 @@ export function EditarVehiculoClient() {
 
   if (!vehicle) {
     return (
-      <main className="pb-32 pt-24">
+      <main className="pb-20 pt-14 sm:pb-32 sm:pt-24">
         <AdminNav />
         <Container>
-          <p className="mt-10 text-body-sm text-muted">
+          <p className="mt-8 sm:mt-10 text-body-sm text-muted">
             Vehículo no encontrado.
           </p>
         </Container>
@@ -53,10 +53,10 @@ export function EditarVehiculoClient() {
   };
 
   return (
-    <main className="pb-32 pt-24">
+    <main className="pb-20 pt-14 sm:pb-32 sm:pt-24">
       <AdminNav />
       <Container>
-        <div className="mt-10 max-w-2xl">
+        <div className="mt-8 sm:mt-10 max-w-2xl">
           <SectionLabel>Panel interno</SectionLabel>
           <h1 className="mt-4 font-display text-heading-lg text-foreground">
             Editar {vehicle.brand} {vehicle.model}

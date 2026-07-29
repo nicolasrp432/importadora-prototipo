@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { useSectionReveal } from "@/hooks/use-scroll-reveal";
+import { assetPath } from "@/lib/asset-path";
 
 const NAV_ITEMS = [
   { href: "/", label: "Inicio" },
@@ -19,15 +20,15 @@ export function Footer() {
   return (
     <footer className="border-t border-border">
       <Container>
-        <div ref={ref} className="grid gap-12 py-16 sm:grid-cols-3">
+        <div ref={ref} className="grid gap-10 py-12 sm:grid-cols-3 sm:gap-12 sm:py-16">
           <div>
             <div className="flex items-center gap-3">
               <Image
-                src="/brand/logo-mark.png"
+                src={assetPath("/brand/logo-mark.png") as string}
                 alt=""
-                width={28}
-                height={28}
-                className="h-7 w-7"
+                width={56}
+                height={56}
+                className="h-[28px] w-[28px] shrink-0"
               />
               <p className="font-display text-body-lg text-foreground">
                 Eleven Motorworks
@@ -60,7 +61,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border py-8 text-caption text-muted">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border py-6 text-caption text-muted sm:py-8">
           <p>© {year} Eleven Motorworks. Todos los derechos reservados.</p>
         </div>
       </Container>

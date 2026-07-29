@@ -1,8 +1,9 @@
 import type { InputHTMLAttributes, SelectHTMLAttributes, TextareaHTMLAttributes } from "react";
 import { cn } from "@/lib/cn";
 
+/* text-[16px] en móvil: por debajo de 16px iOS hace zoom al enfocar el campo. */
 const fieldClasses =
-  "w-full rounded-sm border border-border bg-surface px-4 py-3 text-body text-foreground " +
+  "w-full rounded-sm border border-border bg-surface px-4 py-3 text-[16px] sm:text-body text-foreground " +
   "transition-colors duration-200 ease-standard placeholder:text-muted " +
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
