@@ -49,7 +49,7 @@ function FilterGroup<T extends string>({
               aria-pressed={active}
               onClick={() => onChange(option)}
               className={cn(
-                "cursor-pointer rounded-sm border px-4 py-2 text-body-sm transition-colors duration-200 ease-standard",
+                "min-h-[44px] cursor-pointer rounded-sm border px-3 py-1.5 text-body-sm transition-colors duration-200 ease-standard sm:px-4 sm:py-2",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                 active
                   ? "border-accent bg-accent/10 text-foreground"
@@ -93,7 +93,7 @@ export default function CatalogoPage() {
   }
 
   return (
-    <main className="pb-32 pt-24">
+    <main className="pb-20 pt-14 sm:pb-32 sm:pt-24">
       <Container>
         <div ref={headerRef} className="max-w-2xl">
           <div data-stagger-item>
@@ -108,20 +108,20 @@ export default function CatalogoPage() {
           </p>
         </div>
 
-        <div className="mt-12 flex flex-wrap gap-10 border-y border-border py-8">
+        <div className="mt-8 flex flex-wrap gap-6 border-y border-border py-6 sm:mt-12 sm:gap-10 sm:py-8">
           <FilterGroup label="Marca" options={BRANDS} value={brand} onChange={setBrand} />
           <FilterGroup label="Combustible" options={FUELS} value={fuel} onChange={setFuel} />
         </div>
 
-        <div ref={gridRef} className="mt-12">
+        <div ref={gridRef} className="mt-8 sm:mt-12">
           {filtered.length > 0 ? (
-            <div className="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 sm:gap-y-14 lg:grid-cols-3">
               {filtered.map((vehicle) => (
                 <VehicleCard key={vehicle.slug} vehicle={vehicle} />
               ))}
             </div>
           ) : (
-            <div className="flex flex-col items-center gap-4 rounded-md border border-dashed border-border py-24 text-center">
+            <div className="flex flex-col items-center gap-4 rounded-md border border-dashed border-border py-14 sm:py-20 lg:py-24 text-center">
               <SectionLabel className="justify-center">Sin resultados</SectionLabel>
               <p className="max-w-md text-body text-foreground">
                 No hay vehículos que coincidan con estos filtros.

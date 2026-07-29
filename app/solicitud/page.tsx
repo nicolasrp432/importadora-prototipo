@@ -60,7 +60,7 @@ export default function SolicitudPage() {
 
   if (submitted) {
     return (
-      <main className="flex min-h-screen items-center py-24">
+      <main className="flex min-h-[100svh] items-center py-14 sm:py-20 lg:py-24">
         <Container>
           <ConfirmationPanel />
         </Container>
@@ -69,7 +69,7 @@ export default function SolicitudPage() {
   }
 
   return (
-    <main className="pb-32 pt-24">
+    <main className="pb-20 pt-14 sm:pb-32 sm:pt-24">
       <Container>
         <div ref={headerRef} className="max-w-2xl">
           <div data-stagger-item>
@@ -84,8 +84,8 @@ export default function SolicitudPage() {
           </p>
         </div>
 
-        <form ref={formRef} onSubmit={handleSubmit} className="mt-12 max-w-2xl">
-          <div className="grid gap-6 border-y border-border py-10 sm:grid-cols-2">
+        <form ref={formRef} onSubmit={handleSubmit} className="mt-8 sm:mt-12 max-w-2xl">
+          <div className="grid gap-6 border-y border-border py-8 sm:py-10 sm:grid-cols-2">
             <SelectField id="marca" label="Marca preferida" options={BRAND_OPTIONS} />
             <Field id="modelo" label="Modelo deseado" placeholder="Ej. Serie 5 Touring" />
             <Field
@@ -117,7 +117,7 @@ export default function SolicitudPage() {
             <SelectField id="combustible" label="Combustible preferido" options={FUEL_OPTIONS} />
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          <div className="mt-8 sm:mt-10 grid gap-6 sm:grid-cols-2">
             <Field id="nombre" label="Nombre" required placeholder="Tu nombre" />
             <Field id="email" label="Email" type="email" required placeholder="tu@email.com" />
             <Field
@@ -143,7 +143,7 @@ export default function SolicitudPage() {
           </p>
 
           <div className="mt-8">
-            <Button type="submit" variant="primary">
+            <Button type="submit" variant="primary" className="w-full sm:w-auto">
               Enviar solicitud
             </Button>
           </div>

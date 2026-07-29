@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-body-sm font-sans font-medium " +
+  "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-sm px-6 py-3 text-body-sm font-sans font-medium " +
   "transition-colors duration-200 ease-standard cursor-pointer select-none " +
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background " +
   "active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100";

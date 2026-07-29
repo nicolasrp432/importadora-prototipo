@@ -28,7 +28,7 @@ export default function CalculadoraPage() {
   const resultRef = useSectionReveal<HTMLElement>("clip-reveal");
 
   return (
-    <main className="pb-32 pt-24">
+    <main className="pb-20 pt-14 sm:pb-32 sm:pt-24">
       <Container>
         <div ref={headerRef} className="max-w-2xl">
           <div data-stagger-item>
@@ -43,7 +43,7 @@ export default function CalculadoraPage() {
           </p>
         </div>
 
-        <section ref={formRef} className="mt-12 grid gap-6 border-y border-border py-10 sm:grid-cols-2 sm:max-w-xl">
+        <section ref={formRef} className="mt-8 sm:mt-12 grid gap-6 border-y border-border py-8 sm:py-10 sm:grid-cols-2 sm:max-w-xl">
           <Field
             id="price"
             label="Precio origen"
@@ -66,24 +66,26 @@ export default function CalculadoraPage() {
           />
         </section>
 
-        <section ref={resultRef} className="mt-16">
+        <section ref={resultRef} className="mt-10 sm:mt-16">
           <SectionLabel>Coste estimado</SectionLabel>
-          <h2 className="mt-4 font-display text-heading-lg text-foreground">
-            {formatEUR(estimate.total[0])} – {formatEUR(estimate.total[1])}
+          <h2 className="mt-4 font-display text-heading tabular-nums text-foreground sm:text-heading-lg">
+            <span className="whitespace-nowrap">{formatEUR(estimate.total[0])}</span>{" "}
+            <span className="text-muted">–</span>{" "}
+            <span className="whitespace-nowrap">{formatEUR(estimate.total[1])}</span>
           </h2>
           <p className="mt-3 max-w-lg text-body-sm text-muted">
             Rango, no cifra cerrada. Depende de valoración final y estado
             real del vehículo.
           </p>
 
-          <div className="mt-10 max-w-xl">
+          <div className="mt-8 sm:mt-10 max-w-xl">
             {estimate.items.map((item) => (
               <div
                 key={item.label}
-                className="flex items-baseline justify-between border-b border-border py-4"
+                className="flex flex-col gap-1 border-b border-border py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 sm:py-4"
               >
                 <span className="text-body-sm text-muted">{item.label}</span>
-                <span className="text-body text-foreground">
+                <span className="text-body tabular-nums text-foreground">
                   {item.range[0] === item.range[1]
                     ? formatEUR(item.range[0])
                     : `${formatEUR(item.range[0])} – ${formatEUR(item.range[1])}`}
@@ -99,7 +101,11 @@ export default function CalculadoraPage() {
           </p>
 
           <div className="mt-8">
-            <Button variant="primary" onClick={() => router.push("/solicitud")}>
+            <Button
+              variant="primary"
+              className="w-full sm:w-auto"
+              onClick={() => router.push("/solicitud")}
+            >
               Solicitar presupuesto en firme
             </Button>
           </div>

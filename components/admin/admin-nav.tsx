@@ -16,7 +16,7 @@ export function AdminNav() {
   return (
     <div className="border-b border-border bg-surface">
       <Container>
-        <div className="flex h-14 flex-wrap items-center gap-x-8 gap-y-2 py-3">
+        <div className="flex min-h-14 flex-wrap items-center gap-x-8 gap-y-2 py-3">
           <span className="text-caption uppercase tracking-[0.14em] text-muted">
             Panel interno
           </span>

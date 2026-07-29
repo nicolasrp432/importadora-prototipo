@@ -76,7 +76,7 @@ export function VehicleForm({
 
   return (
     <>
-      <div ref={dropzoneRef} className="mt-10 max-w-2xl">
+      <div ref={dropzoneRef} className="mt-8 sm:mt-10 max-w-2xl">
         <p className="text-caption uppercase tracking-[0.1em] text-muted">Fotos</p>
         <div className="relative mt-3 flex aspect-[16/9] items-center justify-center overflow-hidden rounded-md border border-dashed border-border bg-surface">
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/40 to-transparent" />
@@ -87,8 +87,8 @@ export function VehicleForm({
         </div>
       </div>
 
-      <form ref={formRef} onSubmit={handleSubmit} className="mt-10 max-w-2xl">
-        <div className="grid gap-6 border-y border-border py-10 sm:grid-cols-2">
+      <form ref={formRef} onSubmit={handleSubmit} className="mt-8 sm:mt-10 max-w-2xl">
+        <div className="grid gap-6 border-y border-border py-8 sm:py-10 sm:grid-cols-2">
           <SelectField
             id="brand"
             label="Marca"
@@ -189,7 +189,7 @@ export function VehicleForm({
           />
         </div>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        <div className="mt-8 sm:mt-10 grid gap-6 sm:grid-cols-2">
           <SelectField
             id="status"
             label="Estado"

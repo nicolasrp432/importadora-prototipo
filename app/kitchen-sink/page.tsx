@@ -52,7 +52,7 @@ export default function KitchenSinkPage() {
 
   return (
     <main className="pb-32">
-      <section className="border-b border-border py-24">
+      <section className="border-b border-border py-14 sm:py-20 lg:py-24">
         <Container>
           <div ref={heroRef} className="max-w-2xl">
             <div data-stagger-item>
@@ -79,7 +79,7 @@ export default function KitchenSinkPage() {
           <h2 className="mt-4 font-display text-heading-lg text-foreground">
             Una paleta, un acento
           </h2>
-          <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
             {colorTokens.map((token) => (
               <div key={token.name}>
                 <div className={`h-20 rounded-md border border-border ${token.className}`} />
@@ -98,7 +98,7 @@ export default function KitchenSinkPage() {
             Dos grotesk, dos trabajos
           </h2>
 
-          <div className="mt-10 grid gap-10 sm:grid-cols-2">
+          <div className="mt-8 sm:mt-10 grid gap-10 sm:grid-cols-2">
             <div>
               <p className="font-display text-heading text-foreground">
                 Bricolage Grotesque
@@ -145,7 +145,7 @@ export default function KitchenSinkPage() {
             Grilla de 8px
           </h2>
 
-          <div className="mt-10 flex flex-wrap items-end gap-6">
+          <div className="mt-8 sm:mt-10 flex flex-wrap items-end gap-6">
             {spacingSteps.map((step) => (
               <div key={step} className="flex flex-col items-center gap-2">
                 <div
@@ -185,7 +185,7 @@ export default function KitchenSinkPage() {
               Lenis + GSAP ScrollTrigger
             </h2>
 
-            <div data-stagger-item className="mt-10 grid gap-4 sm:grid-cols-2">
+            <div data-stagger-item className="mt-8 sm:mt-10 grid gap-4 sm:grid-cols-2">
               <div className="cursor-default rounded-md border border-border bg-surface p-6 transition-transform duration-700 ease-reveal hover:-translate-y-2">
                 <p className="text-body text-foreground">ease-reveal</p>
                 <p className="mt-1 text-caption text-muted">
@@ -200,7 +200,7 @@ export default function KitchenSinkPage() {
               </div>
             </div>
 
-            <div data-stagger-item className="mt-10">
+            <div data-stagger-item className="mt-8 sm:mt-10">
               <p className="font-display text-display text-foreground">
                 <span ref={statRef}>0</span>
               </p>
@@ -225,7 +225,7 @@ export default function KitchenSinkPage() {
             primaria.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">
             <Button variant="primary">Primary</Button>
             <Button variant="secondary">Secondary</Button>
             <Button variant="ghost">Ghost</Button>
@@ -248,7 +248,7 @@ export default function KitchenSinkPage() {
             un rectángulo gris.
           </p>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          <div className="mt-8 sm:mt-10 grid gap-6 sm:grid-cols-3">
             <MediaFrame ratio="16/9">
               <span className="text-caption uppercase tracking-[0.1em] text-foreground">
                 16 / 9
@@ -283,7 +283,7 @@ export default function KitchenSinkPage() {
               card no pierde nada.
             </p>
 
-            <div data-stagger-item className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+            <div data-stagger-item className="mt-8 sm:mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
               {vehicles.slice(0, 3).map((vehicle) => (
                 <VehicleCard key={vehicle.slug} vehicle={vehicle} />
               ))}

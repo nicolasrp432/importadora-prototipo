@@ -19,10 +19,10 @@ export default function NuevoVehiculoPage() {
   }
 
   return (
-    <main className="pb-32 pt-24">
+    <main className="pb-20 pt-14 sm:pb-32 sm:pt-24">
       <AdminNav />
       <Container>
-        <div ref={headerRef} className="mt-10 max-w-2xl">
+        <div ref={headerRef} className="mt-8 sm:mt-10 max-w-2xl">
           <div data-stagger-item>
             <SectionLabel>Panel interno</SectionLabel>
           </div>
